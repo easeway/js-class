@@ -1,0 +1,28 @@
+{
+    "name": "js-class",
+    "description": "Define classes in Javascript",
+    "version": "0.0.1",
+    "author": "Yisui Hu <easeway@gmail.com>",
+    "keywords": [
+        "class", "object-oriented", "OOP"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/easeway/js-class"
+    },
+    "main": "./class",
+    "scripts": {
+        "test": "mocha class-test.js",
+        "build": "uglifyjs class.js -o js-class.min.js"
+    },
+    "devDependencies": {
+        "mocha": "1.10.0",
+        "uglify-js": "2.3.6"
+    },
+    "licenses": [
+        {
+            "type": "MIT",
+            "url": "https://github.com/evo-cloud/elements/raw/master/LICENSE"
+        }
+    ]
+}
