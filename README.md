@@ -24,6 +24,12 @@ npm install
 npm run-script build
 ```
 
+To install using `bower`
+
+```bash
+bower install js-class
+```
+
 #### Prototype
 ```javascript
 Class(baseClass, prototype, options);

@@ -1,0 +1,13 @@
+{
+  "name": "js-class",
+  "version": "0.0.1",
+  "main": "js-class.min.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "class-test.js",
+    "class.js",
+    "package.json"
+  ]
+}
