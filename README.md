@@ -4,9 +4,25 @@ This is a simple module providing a simple `Class` function to simplify class de
 
 ## Install
 
+For Node.js
+
 ```bash
 npm install js-class
 ```
+
+For browser, use `bower`
+
+```bash
+bower install js-class
+```
+
+To rebuild `js-class.min.js`, type:
+
+```bash
+npm install
+npm run-script build
+```
+
 ## How to Use
 
 With Node.js:
@@ -16,19 +32,6 @@ var Class = require('js-class');
 ```
 
 In browser, just include `js-class.min.js`
-
-To rebuild `js-class.min.js`, type:
-
-```bash
-npm install
-npm run-script build
-```
-
-To install using `bower`
-
-```bash
-bower install js-class
-```
 
 #### Prototype
 ```javascript
