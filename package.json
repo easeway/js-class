@@ -13,7 +13,7 @@
     "main": "./class",
     "scripts": {
         "test": "mocha class-test.js",
-        "build": "uglifyjs class.js -o js-class.min.js"
+        "build": "uglifyjs class.js --comments --wrap -m -o js-class.min.js"
     },
     "devDependencies": {
         "mocha": "1.10.0",

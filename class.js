@@ -1,4 +1,6 @@
-/** Class Definition using ECMA5 prototype chain */
+/** @preserve http://github.com/easeway/js-class */
+
+// Class Definition using ECMA5 prototype chain
 
 function inherit(dest, src, noParent) {
     while (src && src !== Object.prototype) {
@@ -56,4 +58,10 @@ Class.clone = function (object) {
     return inherit({}, object);
 };
 
-module.exports = Class;
+Class.VERSION = [0, 0, 1];
+
+if (module) {
+    module.exports = Class;
+} else {
+    global.Class = Class;   // for browser
+}

@@ -2,7 +2,27 @@
 
 This is a simple module providing a simple `Class` function to simplify class definition in Javascript.
 
+## Install
+
+```bash
+npm install js-class
+```
 ## How to Use
+
+With Node.js:
+
+```javascript
+var Class = require('js-class');
+```
+
+In browser, just include `js-class.min.js`
+
+To rebuild `js-class.min.js`, type:
+
+```bash
+npm install
+npm run-script build
+```
 
 #### Prototype
 ```javascript
