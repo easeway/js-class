@@ -53,7 +53,7 @@ The newly defined class.
 A simple and quick sample:
 
 ```javascript
-var Class = require('evo-elements').Class;
+var Class = require('js-class');
 
 var MyClass = Class({
   constructor: function (value) {
@@ -163,6 +163,21 @@ var Singleton = Class({
 Singleton.instance.work();
 ```
 
+### Type Information
+
+The keyword `instanceof` can be used to check the type inherited directly. But it doesn't work with `implemented` types.
+Use `Class.is` for all the cases:
+
+```javascript
+Class.is(object).typeOf(Type)
+```
+
+We also have two aliases:
+
+```javascript
+Class.is(object).a(Type)
+Class.is(object).an(Object)
+```
 
 ## License
 

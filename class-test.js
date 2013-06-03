@@ -211,5 +211,88 @@ describe('Class', function () {
             assert.equal(object.method1(), 1);
             assert.equal(object.method2(), -2);
         });
+        
+        it('indirect implements', function () {
+            var Base0Class = Class({
+                base0: function () {
+                    return 0;
+                }
+            });
+            
+            var Base1Class = Class(Base0Class, {
+                base1: function () {
+                    return 1;
+                }
+            });
+            
+            var BaseClass = Class({}, {
+                implements: [Base0Class]
+            });
+            
+            var SubClass = Class(BaseClass, {}, {
+                implements: [Base1Class]
+            });
+            
+            var MyClass = Class({ }, {
+                implements: [Base1Class]
+            });
+            
+            var object = new MyClass();
+            assert.ok(object.base0);
+            assert.ok(object.base1);
+            assert.equal(object.base0(), 0);
+            assert.equal(object.base1(), 1);
+            
+            var subObject = new SubClass();
+            assert.ok(subObject.base0);
+            assert.ok(subObject.base1);
+        });
+    });
+    
+    describe("Type info", function () {
+        it("base class", function () {
+            var BaseClass = Class({ });
+            var SubClass = Class(BaseClass, { });
+            var object = new SubClass();
+            assert.ok(Class.is(object).typeOf(SubClass));
+            assert.ok(Class.is(object).typeOf(BaseClass));
+            assert.ok(Class.is(object).typeOf(Object));
+        });
+        
+        it("implemented classes", function () {
+            var Class1 = Class({ });
+            var Class2 = Class({ });
+            var MyClass = Class({ }, {
+                implements: [Class1, Class2]
+            });
+            var object = new MyClass();
+            assert.ok(Class.is(object).a(Class1));
+            assert.ok(Class.is(object).a(Class2));
+        });
+        
+        it("indirectly implemented classes", function () {
+            var Class1 = Class({});
+            var Class2 = Class({});
+            var BaseClass = Class(Class1, {}, {
+                implements: [Class2]
+            });
+            var MyClass = Class(BaseClass, {});
+            var object = new MyClass();
+            assert.ok(Class.is(object).a(MyClass));
+            assert.ok(Class.is(object).a(BaseClass));
+            assert.ok(Class.is(object).a(Class1));
+            assert.ok(Class.is(object).a(Class2));
+        });
+        
+        it("builtin classes", function () {
+            assert.ok(Class.is(Array).an(Object));
+            
+            var MyClass = Class({ }, {
+                implements: [Array, Buffer]
+            });
+            var object = new MyClass();
+            assert.ok(Class.is(object).an(Array));
+            assert.ok(Class.is(object).an(Buffer));
+        });
     });
 });
