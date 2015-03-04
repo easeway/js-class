@@ -122,7 +122,7 @@ Class.typeInfo = function (object) {
 
 Class.VERSION = [0, 0, 2];
 
-if (module) {
+if (typeof module !== "undefined") {
     module.exports = Class;
 } else {
     global.Class = Class;   // for browser
