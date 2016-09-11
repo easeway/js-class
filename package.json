@@ -1,7 +1,7 @@
 {
     "name": "js-class",
     "description": "Define classes in Javascript",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "author": "Yisui Hu <easeway@gmail.com>",
     "keywords": [
         "class", "object-oriented", "OOP"
